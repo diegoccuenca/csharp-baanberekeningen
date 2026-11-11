@@ -1,0 +1,21 @@
+# Build-output
+**/bin/
+**/obj/
+
+# Windows publish-bestanden (los voor school inleveren)
+WindowsVersie/
+
+# IDE en systeem
+.vs/
+.vscode/
+.idea/
+.DS_Store
+__MACOSX/
+*.user
+*.suo
+
+# Lokale databases en logs
+*.db
+*.db-shm
+*.db-wal
+*.log
