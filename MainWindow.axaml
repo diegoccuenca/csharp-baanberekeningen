@@ -1,0 +1,55 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="EindopdrachtCSharp.MainWindow"
+    Width="940"
+    Height="900"
+    MinWidth="800"
+    MinHeight="600"
+    Title="Eindopdracht C# — Baanberekeningen">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20" Spacing="10">
+            <TextBlock Text="Baanberekeningen" FontSize="28" FontWeight="Bold" />
+            <TextBlock Text="Beheer personen en bereken per persoon alle opleiding- en beroepscombinaties. Meerdere berekeningen kunnen tegelijk lopen."
+                       TextWrapping="Wrap" />
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Name="InitButton" Content="Database Initialiseren" Click="InitializeDatabaseClick" />
+                <Button Name="ResetButton" Content="Reset Database" Click="ResetDatabaseClick" />
+                <Button Name="LoadButton" Content="Laad Personen" Click="LoadPersonenClick" />
+            </StackPanel>
+
+            <TextBlock Text="Personen beheren" FontSize="18" FontWeight="SemiBold" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBox Name="NaamTextBox" Watermark="Naam" Width="235" />
+                <TextBox Name="LeeftijdTextBox" Watermark="Leeftijd" Width="105" />
+                <Button Name="AddButton" Content="Voeg Persoon Toe" Click="AddPersoonClick" />
+                <Button Name="UpdateButton" Content="Wijzig Geselecteerde" Click="UpdatePersoonClick" />
+                <Button Name="DeleteButton" Content="Verwijder Geselecteerde" Click="DeletePersoonClick" />
+            </StackPanel>
+
+            <ListBox Name="PersonenListBox" Height="145" />
+            <Button Name="BerekenButton" Content="Bereken kans voor geselecteerde persoon" Click="BerekenKansClick"
+                    HorizontalAlignment="Left" />
+
+            <TextBlock Text="Kansberekeningen per persoon" FontSize="18" FontWeight="SemiBold" />
+            <TextBlock Text="Iedere knop start een eigen achtergrondtaak. Tijdens berekeningen zijn wijzigen en reset tijdelijk geblokkeerd."
+                       TextWrapping="Wrap" />
+            <ScrollViewer Height="275" VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="PersonStatusPanel" Spacing="8" />
+            </ScrollViewer>
+
+            <TextBlock Text="Totale voortgang" FontSize="18" FontWeight="SemiBold" />
+            <ProgressBar Name="MainProgressBar" Minimum="0" Maximum="100" Value="0" Height="20" />
+            <TextBlock Name="MainProgressText" Text="Voortgang: 0% (0 actief)" />
+
+            <TextBlock Name="BesteBaanText" Text="Beste baan: nog niet berekend" FontWeight="SemiBold" />
+            <TextBlock Name="KansText" Text="Nog geen kans berekend" />
+
+            <TextBlock Text="Logboek" FontSize="18" FontWeight="SemiBold" />
+            <ListBox Name="LogListBox" Height="155" />
+            <TextBlock Name="StatusText" Text="Status..." TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</Window>
